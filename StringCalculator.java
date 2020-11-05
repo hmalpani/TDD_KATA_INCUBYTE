@@ -10,14 +10,19 @@ public class StringCalculator
 		else if(numbers.contains(","))
 		{
 			String[] nums = numbers.split(",");
-			return Integer.parseInt(nums[0])+Integer.parseInt(nums[1]);
+			int sum=0;
+			for(int i=0;i<nums.length;i++)
+			{
+				sum+=Integer.parseInt(nums[i]);
+			}
+			return sum;
 		}
 		else
 		{
 			return Integer.parseInt(numbers);
 		}
 	}
-	
+
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
