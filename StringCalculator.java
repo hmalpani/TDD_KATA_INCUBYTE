@@ -26,7 +26,8 @@ public class StringCalculator
 			{	
 				if(nums[i].charAt(0)=='-')
 					throw new RuntimeException();
-				sum+=Integer.parseInt(nums[i]);
+				else if(Integer.parseInt(nums[i])<=1000)
+					sum+=Integer.parseInt(nums[i]);
 			}
 			return sum;
 		}
@@ -35,7 +36,7 @@ public class StringCalculator
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		String a = "//;\n1;2;3;4;5";
+		String a = "2,1001,3";
 		try{
 			System.out.print(Add(a));
 		}
