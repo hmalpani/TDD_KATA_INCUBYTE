@@ -14,8 +14,11 @@ public class StringCalculator
 			String delimiter = ",|\n";
 			if(numbers.startsWith("//"))
 			{
-				delimiter+="|"+numbers.charAt(2);
-				numbers = numbers.substring(4,numbers.length());
+				delimiter+="|";
+				int temp=2;
+				for(temp=2;!(numbers.charAt(temp)=='\n');temp++)
+					delimiter+=numbers.charAt(temp);
+				numbers = numbers.substring(++temp,numbers.length());
 			}
 
 			//String[] nums = numbers.split(delimiter);
@@ -36,7 +39,7 @@ public class StringCalculator
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		String a = "2,1001,3";
+		String a = "//;;;\n2;;;1001;;;3,4";
 		try{
 			System.out.print(Add(a));
 		}
