@@ -7,9 +7,16 @@ public class StringCalculator
 		{
 			return 0;
 		}
-		else if(numbers.contains(","))
+		else
 		{
-			String[] nums = numbers.split(",|\n");
+			String delimiter = ",|\n";
+			if(numbers.startsWith("//"))
+			{
+				delimiter+="|"+numbers.charAt(2);
+				numbers = numbers.substring(4,numbers.length());
+			}
+
+			String[] nums = numbers.split(delimiter);
 			int sum=0;
 			for(int i=0;i<nums.length;i++)
 			{
@@ -17,16 +24,12 @@ public class StringCalculator
 			}
 			return sum;
 		}
-		else
-		{
-			return Integer.parseInt(numbers);
-		}
 	}
 
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		String a = "1,2\n3";
+		String a = "//;\n1;2;3";
 		System.out.print(Add(a));
 
 
